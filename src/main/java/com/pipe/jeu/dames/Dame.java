@@ -12,6 +12,8 @@ public class Dame extends Pion{
     
     public Dame(int x, int y, int couleur) {
         super(x, y, couleur);
+        this.isDama = true; 
+        
     }
     
     

@@ -47,7 +47,11 @@ public class Plan {
                     Pion pion = new Pion(i, j, 1); 
                     this.pions.add(pion); 
                 }
+                
             }
         }
     }
+   
+    
+    
 }
