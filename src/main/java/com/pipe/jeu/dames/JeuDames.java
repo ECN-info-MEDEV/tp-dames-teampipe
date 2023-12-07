@@ -15,7 +15,7 @@ public class JeuDames {
         int nombreDeCoups = 30;
         for (int i = 0; i < nombreDeCoups; i++) {
             jeu.jouerCoup(); 
-            jeu.afficherJeu();
+            
         }
         jeu.enregistrerJeu("JeuSauve2");
         jeu.enregistrerJeu("JeuSauve3");

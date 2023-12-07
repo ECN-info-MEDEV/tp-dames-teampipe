@@ -47,11 +47,11 @@ public class Plan {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 if (this.damier[i][j] == 1 && i < 4) {
-                    Pion pion = new Pion(i, j, 0); 
+                    Pion pion = new Pion(i, j, 0, pions.size()); 
                     this.pions.add(pion); 
                 }
                 else if (this.damier[i][j] == 1 && i > 5) {
-                    Pion pion = new Pion(i, j, 1); 
+                    Pion pion = new Pion(i, j, 1, pions.size()); 
                     this.pions.add(pion); 
                 }
                 
@@ -62,14 +62,16 @@ public class Plan {
     public void jouerCoup() {
         Scanner sc = new Scanner(System.in);
         String tir = "";
+        afficherJeu();
         if (joueurActuel == 0) {
             System.out.println("Tour du joueur NOIR");
-            //tir = sc.nextLine();
+            tir = sc.nextLine();
+            
             joueurActuel = 1; 
             
         } else {
             System.out.println("Tour du joueur BLANC");
-            //tir = sc.nextLine();
+            tir = sc.nextLine();
             joueurActuel = 0; 
         }
     }
@@ -84,10 +86,10 @@ public class Plan {
                 for (Pion pion : pions) {
                     if (pion.getX() == i && pion.getY() == j) {
                         if(pion.getCouleur() == 1){
-                            System.out.print(" B ");
+                            System.out.print( pion.getId());
                             pionPresent = true;
                         }else{
-                            System.out.print(" N ");
+                            System.out.print(pion.getId());
                             pionPresent = true;
                         }
                         break;
@@ -108,7 +110,7 @@ public class Plan {
                 int y = pions.get(i).getY();
                 int c = pions.get(i).getCouleur();
                 pions.remove(i);
-                Dame dame = new Dame(x, y, c);
+                Dame dame = new Dame(x, y, c, 200);
                 
             }
             
@@ -182,11 +184,11 @@ public class Plan {
                 String[] parti = linea.split(" ");
                 for(String a : parti){
                     if(a == "N"){
-                        Pion pion = new Pion(i, j, 0); 
+                        Pion pion = new Pion(i, j, 0, pions.size()); 
                         this.pions.add(pion); 
                     }
                     else if(a == "B"){
-                        Pion pion = new Pion(i, j, 1); 
+                        Pion pion = new Pion(i, j, 1, pions.size()); 
                         this.pions.add(pion); 
                     }
                     j++;

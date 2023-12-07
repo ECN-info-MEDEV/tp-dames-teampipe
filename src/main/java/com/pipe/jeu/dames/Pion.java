@@ -12,13 +12,15 @@ public class Pion {
     private int x;
     private int y;
     private int couleur;
+    private int id;
     public boolean isDama;
 
-    public Pion(int x, int y, int couleur) {
+    public Pion(int x, int y, int couleur, int id) {
         this.x = x;
         this.y = y;
         this.couleur = couleur;
         this.isDama = false; 
+        this.id = id;
     }
 
     public int getX() {
@@ -76,6 +78,22 @@ public class Pion {
         }
         
         
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public boolean isIsDama() {
+        return isDama;
+    }
+
+    public void setIsDama(boolean isDama) {
+        this.isDama = isDama;
     }
     
     

@@ -10,11 +10,11 @@ package com.pipe.jeu.dames;
  */
 public class Dame extends Pion {
 
-    public Dame(int x, int y, int couleur) {
-        super(x, y, couleur);
-        this.isDama = true;
-
+    public Dame(int x, int y, int couleur, int id) {
+        super(x, y, couleur, id);
     }
+
+    
 
     public void deplacer(String horizontal, String vertical) {
         if (vertical == "u") {
