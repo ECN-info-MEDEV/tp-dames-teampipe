@@ -17,7 +17,9 @@ public class JeuDames {
             jeu.jouerCoup(); 
             jeu.afficherJeu();
         }
-        
+        jeu.enregistrerJeu("JeuSauve2");
+        jeu.enregistrerJeu("JeuSauve3");
+        jeu.ouvrirJeu();
     }
     
 }

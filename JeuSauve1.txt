@@ -1,0 +1,10 @@
+ -  B  -  B  -  B  -  B  -  B 
+ B  -  B  -  B  -  B  -  B  - 
+ -  B  -  B  -  B  -  B  -  B 
+ B  -  B  -  B  -  B  -  B  - 
+ -  -  -  -  -  -  -  -  -  - 
+ -  -  -  -  -  -  -  -  -  - 
+ -  N  -  N  -  N  -  N  -  N 
+ N  -  N  -  N  -  N  -  N  - 
+ -  N  -  N  -  N  -  N  -  N 
+ N  -  N  -  U  -  N  -  N  - 
