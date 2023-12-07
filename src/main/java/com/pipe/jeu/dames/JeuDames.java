@@ -11,6 +11,12 @@ package com.pipe.jeu.dames;
 public class JeuDames {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Plan jeu = new Plan();
+        int nombreDeCoups = 30;
+        for (int i = 0; i < nombreDeCoups; i++) {
+            jeu.jouerCoup(); 
+            jeu.afficherJeu();
+        }
+        
     }
 }

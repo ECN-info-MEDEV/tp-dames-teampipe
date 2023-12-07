@@ -16,6 +16,7 @@ public class Pion {
     public Pion(int x, int y, int couleur) {
         this.x = x;
         this.y = y;
+        this.couleur = couleur;
     }
 
     public int getX() {
