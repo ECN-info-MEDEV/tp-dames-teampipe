@@ -51,10 +51,10 @@ public class Pion {
     public void deplacer(String direction){
         if(this.couleur == 0){
             setY(this.y+1); 
-            if(direction == "droite"){
+            if(direction == "r"){
                 setX(this.x+1); 
             }
-            else if(direction == "gauche"){
+            else if(direction == "l"){
                 setX(this.x-1);
             }
             if (this.y==9){
@@ -64,11 +64,14 @@ public class Pion {
         }
         else{
             setY(this.y-1); 
-            if(direction == "droite"){
+            if(direction == "r"){
                 setX(this.x+1); 
             }
-            else if(direction == "gauche"){
+            else if(direction == "l"){
                 setX(this.x-1);
+            }
+            if (this.y==0){
+                this.isDama = true; 
             }
         }
         

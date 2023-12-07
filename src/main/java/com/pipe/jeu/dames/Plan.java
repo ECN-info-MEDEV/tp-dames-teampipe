@@ -101,6 +101,20 @@ public class Plan {
         }
         System.out.println("---------------------");
     }
+    public void checkDames(){
+        for (int i = 0; i < pions.size(); i++) {
+            if (pions.get(i).isDame()){
+                int x = pions.get(i).getX();
+                int y = pions.get(i).getY();
+                int c = pions.get(i).getCouleur();
+                pions.remove(i);
+                Dame dame = new Dame(x, y, c);
+                
+            }
+            
+       }
+    }  
+   
     
     public void enregistrerJeu(String nombreArchivo) {
         try {
