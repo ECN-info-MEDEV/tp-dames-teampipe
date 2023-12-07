@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.pipe.jeu.dames;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -13,6 +10,7 @@ import java.util.ArrayList;
 public class Plan {
     private int[][] damier;
     private ArrayList<Pion> pions;
+    private int joueurActuel;
 
     public Plan(int[][] damier, ArrayList<Pion> pions) {
         this.damier = damier;
@@ -22,6 +20,9 @@ public class Plan {
     public Plan() {
         this.damier = new int[10][10];
         this.pions = new ArrayList<Pion>();
+        this.joueurActuel = 0;
+        initialiserDamier();
+        initialiserPions();
     }
     
     private void initialiserDamier() {
@@ -51,7 +52,47 @@ public class Plan {
             }
         }
     }
-   
     
+    public void jouerCoup() {
+        Scanner sc = new Scanner(System.in);
+        String tir = "";
+        if (joueurActuel == 0) {
+            System.out.println("Tour du joueur NOIR");
+            //tir = sc.nextLine();
+            joueurActuel = 1; 
+            
+        } else {
+            System.out.println("Tour du joueur BLANC");
+            //tir = sc.nextLine();
+            joueurActuel = 0; 
+        }
+    }
     
+    public void afficherJeu() {
+        System.out.println("État actuel du jeu :");
+        System.out.println("---------------------");
+        
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                boolean pionPresent = false;
+                for (Pion pion : pions) {
+                    if (pion.getX() == i && pion.getY() == j) {
+                        if(pion.getCouleur() == 1){
+                            System.out.print(" N ");
+                            pionPresent = true;
+                        }else{
+                            System.out.print(" B ");
+                            pionPresent = true;
+                        }
+                        break;
+                    }
+                }
+                if (!pionPresent) {
+                    System.out.print(" - ");
+                }
+            }
+            System.out.println(); 
+        }
+        System.out.println("---------------------");
+    }
 }
