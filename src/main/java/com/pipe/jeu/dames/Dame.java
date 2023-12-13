@@ -15,21 +15,21 @@ public class Dame extends Pion {
     }
 
     
-
     public void deplacer(String horizontal, String vertical) {
-        if (vertical == "u") {
-            setX(this.getY() + 1);
-        } else if (vertical == "d") {
-            setX(this.getY() - 1);
+        if (vertical.equals("u")) {
+            this.setY((this.getY() + 1));
+        } else if (vertical.equals("d")) {
+            this.setY((this.getY() - 1));
         }
         
         
-        if (horizontal == "r") {
-            setX(this.getX() + 1);
-        } else if (horizontal == "l") {
-            setX(this.getX() - 1);
-        }
+        if (horizontal.equals("r")) {
+            this.setX((this.getX() + 1));         
 
+        } else if (horizontal.equals("l")) {
+            this.setX((this.getX() - 1));
+
+        }
     }
 
 }
