@@ -84,13 +84,8 @@ public class Plan {
                 boolean pionPresent = false;
                 for (Pion pion : pions) {
                     if (pion.getX() == i && pion.getY() == j) {
-                        if(pion.getCouleur() == 1){
-                            System.out.print( pion.getId());
-                            pionPresent = true;
-                        }else{
-                            System.out.print(pion.getId());
-                            pionPresent = true;
-                        }
+                        System.out.print( pion.getId());
+                        pionPresent = true;
                         break;
                     }
                 }
@@ -182,11 +177,11 @@ public class Plan {
             while ((linea = br.readLine()) != null) {
                 String[] parti = linea.split(" ");
                 for(String a : parti){
-                    if(a == "N"){
+                    if(a.equals("N")){
                         Pion pion = new Pion(i, j, 0, pions.size()); 
                         this.pions.add(pion); 
                     }
-                    else if(a == "B"){
+                    else if(a .equals("B")){
                         Pion pion = new Pion(i, j, 1, pions.size()); 
                         this.pions.add(pion); 
                     }
