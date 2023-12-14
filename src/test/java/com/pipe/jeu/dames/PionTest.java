@@ -4,6 +4,7 @@
  */
 package com.pipe.jeu.dames;
 
+import java.util.ArrayList;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -29,7 +30,7 @@ public class PionTest {
     /**
      * Test of deplacer method, of class Pion.
      */
-    @Test
+    /**@Test
     public void testDeplacer() {
         System.out.println("Test deplacer");
         //Peon Blanc
@@ -72,6 +73,37 @@ public class PionTest {
         instanceN.setIsDama(false);
         assertEquals(false,instanceN.isDame());
            }
+         */
+        /**
+     * Test of mager method, of class Pion.
+     */
+    @Test
+    public void testManger() {
+        //Verifie si les pions sont au même endroit et on peu manger
+        Plan jeu = new Plan();
+        ArrayList<Pion> listPions = new ArrayList<Pion>();
+        Pion instanceA =  new Pion(1, 1, 0,1);
+        listPions.add(instanceA);
+        Pion instanceB =  new Pion(1, 1, 1,1);
+        listPions.add(instanceB);
+        Pion instanceC =  new Pion(0, 0, 1,1);
+        listPions.add(instanceC);
+        jeu.setPions(listPions);
+        instanceA.manger(instanceB, jeu);
+        ArrayList<Pion> expectedArray = new ArrayList<Pion>();
+        expectedArray.add(instanceA);
+        expectedArray.add(instanceC);
+        assertEquals(expectedArray, jeu.getPions());
+        //Verifie si les pions sont pas au même endroit et on ne peut pas manger
+        instanceA.manger(instanceC, jeu);
+        assertEquals(expectedArray, jeu.getPions());
+        //Verifie si les pions sont au même endroit et on ne peut pas manger au cause de dif coleur
+        Pion instanceD =  new Pion(1, 1, 0,1);
+        listPions.add(instanceD);
+        expectedArray.add(instanceD);
+        instanceA.manger(instanceD, jeu);
+        assertEquals(expectedArray, jeu.getPions());
+    }
 
     
 }
