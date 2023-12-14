@@ -9,6 +9,7 @@ package com.pipe.jeu.dames;
  * @author felipelavila
  */
 public class Pion {
+
     private int x;
     private int y;
     private int couleur;
@@ -19,7 +20,7 @@ public class Pion {
         this.x = x;
         this.y = y;
         this.couleur = couleur;
-        this.isDama = false; 
+        this.isDama = false;
         this.id = id;
     }
 
@@ -42,42 +43,51 @@ public class Pion {
     public int getCouleur() {
         return couleur;
     }
-    public boolean isDame(){
-        return this.isDama; 
+
+    public boolean isDame() {
+        return this.isDama;
     }
-        
 
     public void setCouleur(int couleur) {
         this.couleur = couleur;
     }
-    public void deplacer(String direction){
-        if(this.couleur == 0){
-            setY(this.y+1); 
-            if(direction == "r"){
-                setX(this.x+1); 
+
+    public void deplacer(String direction) {
+        if (this.couleur == 0) {
+            if (this.y + 1 < 10) {
+                setY(this.y + 1);
             }
-            else if(direction == "l"){
-                setX(this.x-1);
+            if (direction == "r") {
+                if (this.x + 1 < 10) {
+                    setX(this.x + 1);
+                }
+            } else if (direction == "l") {
+                if (this.x - 1 >= 0) {
+                    setX(this.x - 1);
+                }
             }
-            if (this.y==9){
-                this.isDama = true; 
+            if (this.y == 9) {
+                this.isDama = true;
             }
-            
+
+        } else {
+            if (this.y - 1 >= 0) {
+                setY(this.y - 1);
+            }
+            if (direction == "r") {
+                if (this.x + 1 < 10) {
+                    setX(this.x + 1);
+                }
+            } else if (direction == "l") {
+                if (this.x - 1 >= 10) {
+                    setX(this.x - 1);
+                }
+            }
+            if (this.y == 0) {
+                this.isDama = true;
+            }
         }
-        else{
-            setY(this.y-1); 
-            if(direction == "r"){
-                setX(this.x+1); 
-            }
-            else if(direction == "l"){
-                setX(this.x-1);
-            }
-            if (this.y==0){
-                this.isDama = true; 
-            }
-        }
-        
-        
+
     }
 
     public int getId() {
@@ -95,7 +105,13 @@ public class Pion {
     public void setIsDama(boolean isDama) {
         this.isDama = isDama;
     }
-    
-    
-    
+
+    public void manger(Pion peon) {
+        if (Math.abs(peon.getX() - this.getX())==1 && Math.abs(peon.getY() - this.getY())==1) {
+            
+
+        }
+
+    }
+
 }

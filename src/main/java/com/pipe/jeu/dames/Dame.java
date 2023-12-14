@@ -14,21 +14,27 @@ public class Dame extends Pion {
         super(x, y, couleur, id);
     }
 
-    
-    public void deplacer(String horizontal, String vertical) {
-        if (vertical.equals("u")) {
-            this.setY((this.getY() + 1));
-        } else if (vertical.equals("d")) {
-            this.setY((this.getY() - 1));
-        }
-        
-        
-        if (horizontal.equals("r")) {
-            this.setX((this.getX() + 1));         
-
-        } else if (horizontal.equals("l")) {
-            this.setX((this.getX() - 1));
-
+    public void deplacerDame(int dir, int longueur) {
+        if (dir == 0) {
+            if (this.getY() + longueur < 10 && this.getX() - longueur >= 0) {
+                this.setY(this.getY() + longueur);
+                this.setX(this.getX() - longueur);
+            }
+        } else if (dir == 1) {
+            if (this.getY() + longueur < 10 && this.getX() + longueur < 10) {
+                this.setY(this.getY() + longueur);
+                this.setX(this.getX() + longueur);
+            }
+        } else if (dir == 2) {
+            if (this.getY() + longueur >= 0 && this.getX() + longueur < 10) {
+                this.setY(this.getY() - longueur);
+                this.setX(this.getX() + longueur);
+            }
+        } else if (dir == 3) {
+            if (this.getY() - longueur >= 0 && this.getX() - longueur >= 0) {
+                this.setY(this.getY() - longueur);
+                this.setX(this.getX() - longueur);
+            }
         }
     }
 
