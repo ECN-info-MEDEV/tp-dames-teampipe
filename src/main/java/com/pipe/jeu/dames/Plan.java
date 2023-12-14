@@ -26,7 +26,7 @@ public class Plan {
     public Plan() {
         this.damier = new int[10][10];
         this.pions = new ArrayList<Pion>();
-        this.joueurActuel = 0;
+        this.joueurActuel = 1;
         initialiserDamier();
         initialiserPions();
     }
@@ -47,11 +47,11 @@ public class Plan {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 if (this.damier[i][j] == 1 && i < 4) {
-                    Pion pion = new Pion(i, j, 0, pions.size()); 
+                    Pion pion = new Pion(i, j, 0, pions.size()+10); 
                     this.pions.add(pion); 
                 }
                 else if (this.damier[i][j] == 1 && i > 5) {
-                    Pion pion = new Pion(i, j, 1, pions.size()); 
+                    Pion pion = new Pion(i, j, 1, pions.size()+10); 
                     this.pions.add(pion); 
                 }
                 
@@ -61,17 +61,24 @@ public class Plan {
     
     public void jouerCoup() {
         Scanner sc = new Scanner(System.in);
-        String tir = "";
+        int piece = 0;
         afficherJeu();
         if (joueurActuel == 0) {
             System.out.println("Tour du joueur NOIR");
-            tir = sc.nextLine();
-            
+            System.out.println("Choisissez la pièce à jouer");
+            do{
+                System.out.println("Entre 30 et 49");
+                piece = sc.nextInt();
+            }while(piece < 30);
             joueurActuel = 1; 
             
         } else {
             System.out.println("Tour du joueur BLANC");
-            tir = sc.nextLine();
+            do{
+                System.out.println("Entre 10 et 29");
+                piece = sc.nextInt();
+                
+            }while(piece > 29);
             joueurActuel = 0; 
         }
     }
@@ -82,20 +89,15 @@ public class Plan {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 boolean pionPresent = false;
-                for (Pion pion : pions) {
+                for (Pion pion : this.pions) {
                     if (pion.getX() == i && pion.getY() == j) {
-                        if(pion.getCouleur() == 1){
-                            System.out.print( pion.getId());
-                            pionPresent = true;
-                        }else{
-                            System.out.print(pion.getId());
-                            pionPresent = true;
-                        }
+                        System.out.print( pion.getId()+(pion.getCouleur() == 1 ? "B" : "N") + " ");
+                        pionPresent = true;
                         break;
                     }
                 }
                 if (!pionPresent) {
-                    System.out.print(" - ");
+                    System.out.print("  ");
                 }
             }
             System.out.println(); 
@@ -127,17 +129,17 @@ public class Plan {
                     for (Pion pion : pions) {
                         if (pion.getX() == i && pion.getY() == j) {
                             if (pion.getCouleur() == 1) {
-                                writer.write(" N ");
+                                writer.write("N");
                                 pionPresent = true;
                             } else {
-                                writer.write(" B ");
+                                writer.write("B");
                                 pionPresent = true;
                             }
                             break;
                         }
                     }
                     if (!pionPresent) {
-                        writer.write(" - ");
+                        writer.write("-");
                     }
                 }
                 writer.write("\n");
@@ -152,7 +154,7 @@ public class Plan {
     public void ouvrirJeu() {
         this.damier = new int[10][10];
         this.pions = new ArrayList<Pion>();
-        this.joueurActuel = 0;
+        this.joueurActuel = 1;
         File carpeta = new File(System.getProperty("user.dir"));
         System.out.println("Choisissez le jeu à charger.");
         File[] archivos = new File[0];
@@ -180,19 +182,29 @@ public class Plan {
             String linea;
             int i = 0, j = 0;
             while ((linea = br.readLine()) != null) {
-                String[] parti = linea.split(" ");
+                
+                char[] caracteres = linea.toCharArray(); // Convierte el String en un array de caracteres
+                String[] parti = new String[caracteres.length]; // Crea un arreglo de String con la longitud de caracteres
+                // Almacena cada carácter como un elemento del arreglo de String
+                for (int k = 0; k < caracteres.length; k++) {
+                    parti[k] = String.valueOf(caracteres[k]);
+                }
                 for(String a : parti){
-                    if(a == "N"){
-                        Pion pion = new Pion(i, j, 0, pions.size()); 
+                    if(a.equals("N")){
+                        Pion pion = new Pion(i, j, 0, pions.size()+10); 
                         this.pions.add(pion); 
                     }
-                    else if(a == "B"){
-                        Pion pion = new Pion(i, j, 1, pions.size()); 
+                    else if(a.equals("B")){
+                        Pion pion = new Pion(i, j, 1, pions.size()+10); 
                         this.pions.add(pion); 
                     }
                     j++;
+                    if(j == 10){
+                        j = 0;
+                    }
                 }
                 i++;
+                
             }
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());

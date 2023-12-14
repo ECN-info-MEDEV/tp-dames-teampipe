@@ -12,14 +12,16 @@ public class JeuDames {
 
     public static void main(String[] args) {
         Plan jeu = new Plan();
-        int nombreDeCoups = 30;
+        int nombreDeCoups = 0;
         for (int i = 0; i < nombreDeCoups; i++) {
             jeu.jouerCoup(); 
             
         }
-        jeu.enregistrerJeu("JeuSauve2");
-        jeu.enregistrerJeu("JeuSauve3");
+        jeu.afficherJeu();
         jeu.ouvrirJeu();
+        jeu.afficherJeu();
+        jeu.afficherJeu();
+        
     }
     
 }
