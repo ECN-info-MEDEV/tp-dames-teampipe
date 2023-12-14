@@ -57,11 +57,11 @@ public class Pion {
             if (this.y + 1 < 10) {
                 setY(this.y + 1);
             }
-            if (direction == "r") {
+            if (direction.equals("r")) {
                 if (this.x + 1 < 10) {
                     setX(this.x + 1);
                 }
-            } else if (direction == "l") {
+            } else if (direction.equals("l")) {
                 if (this.x - 1 >= 0) {
                     setX(this.x - 1);
                 }
@@ -74,11 +74,11 @@ public class Pion {
             if (this.y - 1 >= 0) {
                 setY(this.y - 1);
             }
-            if (direction == "r") {
+            if (direction.equals("r")) {
                 if (this.x + 1 < 10) {
                     setX(this.x + 1);
                 }
-            } else if (direction == "l") {
+            } else if (direction.equals("l")) {
                 if (this.x - 1 >= 10) {
                     setX(this.x - 1);
                 }
@@ -89,7 +89,13 @@ public class Pion {
         }
 
     }
-
+    public void manger(Pion adversaire, Plan plan) {
+        if(adversaire.getX()==this.getX()&&adversaire.getY()==this.getY()){
+            System.out.print(plan.getPions().size());
+            plan.getPions().remove(adversaire);
+        }
+    }
+    
     public int getId() {
         return id;
     }
@@ -105,5 +111,6 @@ public class Pion {
     public void setIsDama(boolean isDama) {
         this.isDama = isDama;
     }
-
+    
+    
 }
