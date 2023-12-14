@@ -46,6 +46,8 @@ public void deplacerDame(int dir, int longueur) {
                 newX -= longueur;
             }
             break;
+        default:
+            System.out.println("Vous n'avez pas choisi une direction valide");
     }
     
     this.setY(newY);
