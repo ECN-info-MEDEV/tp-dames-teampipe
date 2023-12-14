@@ -14,28 +14,42 @@ public class Dame extends Pion {
         super(x, y, couleur, id);
     }
 
-    public void deplacerDame(int dir, int longueur) {
-        if (dir == 0) {
-            if (this.getY() + longueur < 10 && this.getX() - longueur >= 0) {
-                this.setY(this.getY() + longueur);
-                this.setX(this.getX() - longueur);
+public void deplacerDame(int dir, int longueur) {
+    int newY = this.getY();
+    int newX = this.getX();
+    
+    switch (dir) {
+        case 0:
+            if (newY + longueur < 10 && newX - longueur >= 0) {
+                newY += longueur;
+                newX -= longueur;
             }
-        } else if (dir == 1) {
-            if (this.getY() + longueur < 10 && this.getX() + longueur < 10) {
-                this.setY(this.getY() + longueur);
-                this.setX(this.getX() + longueur);
+            break;
+            
+        case 1:
+            if (newY + longueur < 10 && newX + longueur < 10) {
+                newY += longueur;
+                newX += longueur;
             }
-        } else if (dir == 2) {
-            if (this.getY() + longueur >= 0 && this.getX() + longueur < 10) {
-                this.setY(this.getY() - longueur);
-                this.setX(this.getX() + longueur);
+            break;
+            
+        case 2:
+            if (newY - longueur >= 0 && newX + longueur < 10) {
+                newY -= longueur;
+                newX += longueur;
             }
-        } else if (dir == 3) {
-            if (this.getY() - longueur >= 0 && this.getX() - longueur >= 0) {
-                this.setY(this.getY() - longueur);
-                this.setX(this.getX() - longueur);
+            break;
+            
+        case 3:
+            if (newY - longueur >= 0 && newX - longueur >= 0) {
+                newY -= longueur;
+                newX -= longueur;
             }
-        }
+            break;
     }
+    
+    this.setY(newY);
+    this.setX(newX);
+}
 
 }
