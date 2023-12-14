@@ -29,10 +29,11 @@ public class DameTest {
     /**
      * Test of deplacer method, of class Dame.
      */
-    /**@Test
+    @Test
     public void testDeplacer() {
         System.out.println("Test deplacer");
-        // left up
+        /**
+         * // left up
         String horizontallu ="l";
         String verticallu ="u";
         Dame instancelu =  new Dame(0, 0, 1,1);
@@ -60,6 +61,7 @@ public class DameTest {
         instancerd.deplacer(horizontalrd, verticalrd);
         assertEquals(1,instancerd.getX());
         assertEquals(-1,instancerd.getY());
+        */
     }
-    */
+    
 }

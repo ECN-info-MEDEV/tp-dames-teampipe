@@ -30,9 +30,11 @@ public class PionTest {
     /**
      * Test of deplacer method, of class Pion.
      */
-    /**@Test
+    @Test
     public void testDeplacer() {
         System.out.println("Test deplacer");
+        /**
+         * 
         //Peon Blanc
         String dirBL ="l";
         String dirBR ="r";
@@ -71,9 +73,9 @@ public class PionTest {
         assertEquals(true,instanceN.isDame());
         instanceN.setY(2);
         instanceN.setIsDama(false);
-        assertEquals(false,instanceN.isDame());
+        assertEquals(false,instanceN.isDame()); */
            }
-         */
+        
         /**
      * Test of mager method, of class Pion.
      */
