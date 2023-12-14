@@ -80,7 +80,7 @@ public class Pion {
         
     }
     public void manger(Pion adversaire, Plan plan) {
-        if(adversaire.getX()==this.getX()&&adversaire.getY()==this.getY()){
+        if(adversaire.getX()==this.getX()&&adversaire.getY()==this.getY()&&adversaire.getCouleur()!=this.getCouleur()){
             System.out.print(plan.getPions().size());
             plan.getPions().remove(adversaire);
         }
