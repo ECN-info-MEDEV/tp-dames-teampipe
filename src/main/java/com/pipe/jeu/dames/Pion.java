@@ -90,16 +90,16 @@ public class Pion {
 
     }
     public void manger(Pion adversaire, Plan plan) {
-            System.out.print("size avant"+plan.getPions().size());
+            System.out.println("size avant"+plan.getPions().size());
         if(adversaire.getX()==this.getX()&&adversaire.getY()==this.getY()){
             if(adversaire.getCouleur()!=this.getCouleur()){
             plan.getPions().remove(adversaire);
-            System.out.print("size après"+plan.getPions().size());
+            System.out.println("size après"+plan.getPions().size());
             } else{
-             System.out.print("vous ne pouvez pas manger ses propres pièce");
+             System.out.println("vous ne pouvez pas manger ses propres pièce");
             }
         } else {
-             System.out.print("vous êtes très loin pour manger");
+             System.out.println("vous êtes très loin pour manger");
         }
     }
     

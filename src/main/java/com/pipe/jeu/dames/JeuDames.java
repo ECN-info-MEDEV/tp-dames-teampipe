@@ -20,15 +20,15 @@ public class JeuDames {
         }
         try{
         jeu.enregistrerJeu("JeuSauve2");
-        } catch(IOException e){ System.out.print("Exception enregistrerJeu"+e);}
+        } catch(IOException e){ System.out.println("Exception enregistrerJeu"+e);}
         try{
         jeu.enregistrerJeu("JeuSauve3");
-        } catch(IOException e){ System.out.print("Excepetion enregistrerJeu"+e);}
+        } catch(IOException e){ System.out.println("Excepetion enregistrerJeu"+e);}
         try{
         jeu.ouvrirJeu();
         jeu.afficherJeu();
         } catch(IOException e){
-            System.out.print("Excepetion OuvrirJeu"+e);
+            System.out.println("Excepetion OuvrirJeu"+e);
         }
     }
     

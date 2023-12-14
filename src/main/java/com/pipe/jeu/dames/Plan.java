@@ -99,13 +99,13 @@ public class Plan {
                 boolean pionPresent = false;
                 for (Pion pion : this.pions) {
                     if (pion.getX() == i && pion.getY() == j) {
-                        System.out.print( pion.getId()+(pion.getCouleur() == 1 ? "B" : "N") + " ");
+                        System.out.println( pion.getId()+(pion.getCouleur() == 1 ? "B" : "N") + " ");
                         pionPresent = true;
                         break;
                     }
                 }
                 if (!pionPresent) {
-                    System.out.print("   ");
+                    System.out.println("   ");
                 }
             }
             System.out.println(); 
