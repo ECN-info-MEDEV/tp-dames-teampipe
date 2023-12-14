@@ -18,6 +18,14 @@ public class Plan {
     private ArrayList<Pion> pions;
     private int joueurActuel;
 
+    public ArrayList<Pion> getPions() {
+        return pions;
+    }
+
+    public void setPions(ArrayList<Pion> pions) {
+        this.pions = pions;
+    }
+
     public Plan(int[][] damier, ArrayList<Pion> pions) {
         this.damier = damier;
         this.pions = pions;
