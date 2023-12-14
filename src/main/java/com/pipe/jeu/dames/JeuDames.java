@@ -18,8 +18,12 @@ public class JeuDames {
             jeu.jouerCoup(); 
             
         }
+        try{
         jeu.enregistrerJeu("JeuSauve2");
+        } catch(IOException e){ System.out.print("Excepetion enregistrerJeu"+e);}
+        try{
         jeu.enregistrerJeu("JeuSauve3");
+        } catch(IOException e){ System.out.print("Excepetion enregistrerJeu"+e);}
         try{
         jeu.ouvrirJeu();
         jeu.afficherJeu();

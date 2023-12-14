@@ -112,10 +112,8 @@ public class Plan {
     }  
    
     
-    public void enregistrerJeu(String nombreArchivo) {
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(new File(nombreArchivo+".txt")));
-
+    public void enregistrerJeu(String nombreArchivo) throws IOException {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(new File(nombreArchivo+".txt")))){
             for (int i = 0; i < 10; i++) {
                 for (int j = 0; j < 10; j++) {
                     boolean pionPresent = false;
@@ -139,8 +137,6 @@ public class Plan {
             }
             System.out.println("Le jeu a été enregistré dans le fichier : " + nombreArchivo);
             writer.close();
-        } catch (IOException e) {
-            System.err.println("Erreur lors de l'enregistrement du jeu : " + e.getMessage());
         }
     }
     
