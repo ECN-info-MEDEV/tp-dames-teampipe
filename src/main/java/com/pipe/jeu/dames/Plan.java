@@ -149,7 +149,7 @@ public class Plan {
         }
     }
     
-    public void ouvrirJeu() {
+    public void ouvrirJeu () throws IOException {
         this.damier = new int[10][10];
         this.pions = new ArrayList<Pion>();
         this.joueurActuel = 0;
@@ -175,9 +175,9 @@ public class Plan {
             num = sc.nextInt();
             
         } while(num < 0 || num >= archivos.length);
-        try {
-            BufferedReader br = new BufferedReader(new FileReader(archivos[num]));
             String linea;
+            try (FileReader fr = new FileReader(archivos[num]);
+            BufferedReader br = new BufferedReader(fr)){
             int i = 0, j = 0;
             while ((linea = br.readLine()) != null) {
                 String[] parti = linea.split(" ");
@@ -194,11 +194,7 @@ public class Plan {
                 }
                 i++;
             }
-        } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
-        } finally {
-            // The finally block always executes.
-         }
+           }
         
     }
 }
