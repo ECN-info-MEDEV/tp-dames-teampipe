@@ -79,7 +79,7 @@ public class Plan {
     public void afficherJeu() {
         System.out.println("État actuel du jeu :");
         System.out.println("---------------------");
-        
+        File f = nez File();
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 boolean pionPresent = false;
