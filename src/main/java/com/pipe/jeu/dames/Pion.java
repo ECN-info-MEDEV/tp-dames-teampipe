@@ -53,7 +53,7 @@ public class Pion {
     }
 
     public void deplacer(String direction) {
-        if (this.couleur == 0) {
+        if (this.couleur == 1) {
             if (this.y + 1 < 10) {
                 setY(this.y + 1);
             }
@@ -72,15 +72,15 @@ public class Pion {
 
         } else {
             if (this.y - 1 >= 0) {
-                setY(this.y - 1);
+                this.setY(this.y - 1);
             }
             if (direction.equals("r")) {
                 if (this.x + 1 < 10) {
-                    setX(this.x + 1);
+                    this.setX(this.x + 1);
                 }
             } else if (direction.equals("l")) {
                 if (this.x - 1 >= 10) {
-                    setX(this.x - 1);
+                    this.setX(this.x - 1);
                 }
             }
             if (this.y == 0) {
