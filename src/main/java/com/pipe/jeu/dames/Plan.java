@@ -196,7 +196,9 @@ public class Plan {
             }
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
-        }
+        } finally {
+            // The finally block always executes.
+         }
         
     }
 }
