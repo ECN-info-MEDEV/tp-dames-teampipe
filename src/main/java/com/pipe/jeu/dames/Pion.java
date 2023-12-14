@@ -79,7 +79,13 @@ public class Pion {
         
         
     }
-
+    public void manger(Pion adversaire, Plan plan) {
+        if(adversaire.getX()==this.getX()&&adversaire.getY()==this.getY()){
+            System.out.print(plan.getPions().size());
+            plan.getPions().remove(adversaire);
+        }
+    }
+    
     public int getId() {
         return id;
     }
@@ -95,7 +101,6 @@ public class Pion {
     public void setIsDama(boolean isDama) {
         this.isDama = isDama;
     }
-    
     
     
 }
